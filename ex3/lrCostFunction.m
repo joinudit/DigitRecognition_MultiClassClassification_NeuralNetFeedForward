@@ -37,7 +37,8 @@ grad = zeros(size(theta));
 %
 
 
-J = -1/m*(transpose(y)*log(sigmoid(X*theta)) + transpose(1-y)*log(1-sigmoid(X*theta))) + (lambda/(2*m))*sum(theta.^2);
+thata_t = theta(2:end,:);
+J = -1/m*(transpose(y)*log(sigmoid(X*theta)) + transpose(1-y)*log(1-sigmoid(X*theta))) + (lambda/(2*m))*sum(thata_t.^2);
 
 % dont regularize first theta as X = 1
 grad(1) = 1/m*transpose(sigmoid(X*theta) - y)*X(:,1);
